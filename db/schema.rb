@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904155506) do
+ActiveRecord::Schema.define(version: 20160904155753) do
+
+  create_table "tshirts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "color"
+    t.string   "size"
+    t.integer  "stock_in"
+    t.integer  "stock_out"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tshirts", ["user_id"], name: "index_tshirts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
